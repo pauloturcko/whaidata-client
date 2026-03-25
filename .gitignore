@@ -8,6 +8,9 @@
 # production
 /build
 
+# ide
+.idea
+
 # testing
 /coverage
 
