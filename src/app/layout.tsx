@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "./providers";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Whaidata",
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body>
-        <Providers>{children}</Providers>
+          <Providers>{children}</Providers>
       </body>
     </html>
   );
