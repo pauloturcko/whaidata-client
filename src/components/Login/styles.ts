@@ -38,13 +38,43 @@ export const LoginOrCreate = styled.button<{$isActive: boolean}>`
     border: none;
     color: ${({theme}) => theme.colors.textPrimary};
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
 
     &:first-child {
         border-radius: 0.5rem 0 0 0;
+        background: ${({$isActive, theme}) => $isActive ? "linear-gradient(90deg, #246245, #00af73)" : theme.colors.surface};
+        
     }
 
     &:last-child {
         border-radius: 0 0.5rem 0 0;
+        background: ${({$isActive, theme}) => $isActive ? "linear-gradient(90deg, #00af73, #246245)" : theme.colors.surface};
+    }
+`
+
+export const InputsWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding: 2rem 0 0.5rem 0;
+`
+
+export const ResetPassword = styled.a`
+    width: 90%;
+    text-align: end;
+    margin-bottom: 1rem;
+    font-size: 0.875em;
+    color: ${({theme}) => theme.colors.textSecondary};
+    
+    &:hover {
+        text-decoration: underline;
     }
 `
 
