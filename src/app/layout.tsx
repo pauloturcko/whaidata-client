@@ -4,7 +4,10 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "Whaidata",
-  description: "Whaidata application",
+  description: "Whaidata Fincande Dashboard",
+    icons: {
+        icon: "/logo.svg",
+    }
 };
 
 export default function RootLayout({
@@ -14,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body>
+      <body suppressHydrationWarning>
           <Providers>{children}</Providers>
       </body>
     </html>
