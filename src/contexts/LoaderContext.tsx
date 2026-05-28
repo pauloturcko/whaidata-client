@@ -1,6 +1,12 @@
 "use client";
 
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import React, {
+  createContext,
+  ReactNode,
+  useCallback,
+  useContext,
+  useState,
+} from "react";
 
 type LoaderContextType = {
   isLoading: boolean;
@@ -13,8 +19,8 @@ const LoaderContext = createContext<LoaderContextType | null>(null);
 export const LoaderProvider = ({ children }: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const dispatchLoader = () => setIsLoading(true);
-  const hideLoader = () => setIsLoading(false);
+  const dispatchLoader = useCallback(() => setIsLoading(true), []);
+  const hideLoader = useCallback(() => setIsLoading(false), []);
 
   return (
     <LoaderContext.Provider value={{ isLoading, dispatchLoader, hideLoader }}>

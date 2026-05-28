@@ -1,7 +1,9 @@
 "use client";
 
 import * as S from "./styles";
+import Cookies from "js-cookie";
 import { Logo } from "@/components/Core/Logo";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Form } from "@/components/Core/FormInput";
 import { Button } from "@/components/Core/Button";
@@ -16,6 +18,7 @@ type LoginFormData = {
 };
 
 export const LoginPage = () => {
+  const router = useRouter();
   const [isActive, setIsActive] = useState(true);
   const { dispatchToast } = useToastContext();
   const {
@@ -25,9 +28,25 @@ export const LoginPage = () => {
     clearErrors,
     formState: { errors },
   } = useForm<LoginFormData>();
-  const { createAccount } = useAuth();
+  const { createAccount, login } = useAuth();
   const onSubmit: SubmitHandler<LoginFormData> = (data) => {
-    if (isActive) return;
+    if (isActive) {
+      login.mutate(
+        {
+          email: data.email,
+          password: data.senha,
+        },
+        {
+          onSuccess: (response) => {
+            Cookies.set("whaidata.token", response.data.token, {
+              expires: 1 / 24,
+            });
+            router.push("/dashboard");
+          },
+        }
+      );
+      return;
+    }
 
     createAccount.mutate(
       {
