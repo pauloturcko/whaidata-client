@@ -2,11 +2,11 @@
 
 import * as S from "./styles";
 import Cookies from "js-cookie";
-import { Logo } from "@/components/Core/Logo";
+import { Logo } from "@/components/Molecules/Logo";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Form } from "@/components/Core/FormInput";
-import { Button } from "@/components/Core/Button";
+import { Form } from "@/components/Molecules/FormInput";
+import { Button } from "@/components/Molecules/Button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useAuth } from "@/hooks/useAuth";
 import { useToastContext } from "@/contexts/ToastContext";
