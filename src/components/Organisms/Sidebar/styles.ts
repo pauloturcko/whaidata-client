@@ -22,6 +22,14 @@ export const Nav = styled.nav`
   border-top: 1px solid ${(props) => props.theme.colors.border};
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
   padding: 1rem 0;
+
+  span {
+    width: 100%;
+    display: flex;
+    padding-left: 0.75rem;
+    color: ${(props) => props.theme.colors.textMuted};
+    font-size: 0.8rem;
+  }
 `;
 
 export const MenuList = styled.ul`
