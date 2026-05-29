@@ -97,6 +97,7 @@ export const Sidebar = () => {
             </button>
           </li>
         </S.MenuList>
+        <span>{isOpen ? "Versão 0.1.0" : ""}</span>
       </S.Nav>
       <S.ToggleButton
         onClick={() => {
