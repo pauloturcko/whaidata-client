@@ -32,7 +32,8 @@ export function useAuth() {
 
       dispatchToast({
         type: "error",
-        message: errorMsg,
+        message:
+          errorMsg === "Unauthorized" ? "Email ou senha incorretos" : errorMsg,
       });
     },
   });

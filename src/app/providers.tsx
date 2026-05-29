@@ -6,26 +6,26 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "@/styles/GlobalStyles";
 import { theme } from "@/styles/theme";
 import { ToastProvider } from "@/contexts/ToastContext";
-import { Toast } from "@/components/Core/Toast";
+import { Toast } from "@/components/Organisms/Toast";
 import { LoaderProvider } from "@/contexts/LoaderContext";
-import { FullPageLoader } from "@/components/Core/FullPageLoader";
+import { FullPageLoader } from "@/components/Organisms/FullPageLoader";
 
 export function Providers({ children }: { children: React.ReactNode }) {
-    const [queryClient] = useState(() => new QueryClient());
-    const [themeMode, setThemeMode] = useState<"dark" | "light">("dark");
+  const [queryClient] = useState(() => new QueryClient());
+  const [themeMode, setThemeMode] = useState<"dark" | "light">("dark");
 
-    return (
-        <QueryClientProvider client={queryClient}>
-            <ThemeProvider theme={theme[themeMode]}>
-                <LoaderProvider>
-                    <ToastProvider>
-                        <GlobalStyles />
-                        <Toast />
-                        <FullPageLoader />
-                        {children}
-                    </ToastProvider>
-                </LoaderProvider>
-            </ThemeProvider>
-        </QueryClientProvider>
-    );
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme[themeMode]}>
+        <LoaderProvider>
+          <ToastProvider>
+            <GlobalStyles />
+            <Toast />
+            <FullPageLoader />
+            {children}
+          </ToastProvider>
+        </LoaderProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  );
 }

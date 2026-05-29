@@ -19,7 +19,7 @@ export const DashboardPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
-  if (isLoading) return null;
+  if (isLoading || !user) return null;
 
   return (
     <div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { StyledButton } from "@/components/Core/Button/styles";
+import { StyledButton } from "@/components/Molecules/Button/styles";
 import { ReactNode } from "react";
 import { ThemeType } from "@/styles/theme";
 type ThemeColors = keyof ThemeType["colors"];
@@ -9,7 +9,13 @@ type ButtonProps = {
   children: ReactNode;
   width?: number | string;
   height?: number | string;
-  background?: "primary" | "success" | "danger" | "warning" | "info";
+  background?:
+    | "primary"
+    | "success"
+    | "danger"
+    | "warning"
+    | "info"
+    | "transparent";
   color?: ThemeColors;
   justify?: "start" | "end";
   loading?: boolean;

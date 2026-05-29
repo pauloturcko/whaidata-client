@@ -19,7 +19,12 @@ http.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response && error.response.status === 401) {
+    if (
+      error.response &&
+      error.response.status === 401 &&
+      error.config.url !== "/users/login" &&
+      window.location.pathname !== "/login"
+    ) {
       Cookies.remove("whaidata.token");
       window.location.href = "/login";
     }

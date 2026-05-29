@@ -19,5 +19,7 @@ export const darkTheme = {
     danger: "#b84040",
     warning: "#b8882a",
     info: "#3a8fa8",
+
+    transparent: "transparent",
   },
 };
