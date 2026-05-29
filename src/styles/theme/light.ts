@@ -19,5 +19,6 @@ export const lightTheme = {
         danger: "#dc2626",
         warning: "#d97706",
         info: "#0284c7",
+        transparent: "transparent",
     },
 };
