@@ -41,7 +41,7 @@ export const LoginPage = () => {
             Cookies.set("whaidata.token", response.data.token, {
               expires: 1 / 24,
             });
-            router.push("/dashboard");
+            router.replace("/dashboard");
           },
         }
       );

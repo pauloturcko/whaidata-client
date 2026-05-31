@@ -16,7 +16,8 @@ export const Container = styled.div`
 
 export const LoginModal = styled.div`
   background-color: ${({ theme }) => theme.colors.surface};
-  width: 25%;
+  width: 90%;
+  max-width: 450px;
   height: 30rem;
   border-radius: 0.5rem;
   border: 2px solid ${({ theme }) => theme.colors.border};
