@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "./providers";
+import StyledComponentsRegistry from "./registry";
 import React from "react";
 
 export const metadata: Metadata = {
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body suppressHydrationWarning>
+        <StyledComponentsRegistry>
           <Providers>{children}</Providers>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );
