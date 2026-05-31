@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useUser } from "@/hooks/useUser";
 import { useLoaderContext } from "@/contexts/LoaderContext";
 import * as S from "./styles";
+import { SimpleCard } from "@/components/Organisms/SimpleCard";
 
 export const DashboardPage = () => {
   const { user, isLoading } = useUser();
@@ -24,16 +25,7 @@ export const DashboardPage = () => {
 
   return (
     <S.Wrapper>
-      <h2>Olá {user?.name.split(" ")[0]}!</h2>
-      <p>Bem vindo ao dashboard financeiro WhaiData!</p>
-      <p>
-        No momento este projeto ainda está em desenvolvimento, você pode testar
-        o fluxo de autenticação, incluindo a criação de conta e login.
-      </p>
-      <p>
-        As demais rotas estão sendo preparadas para trazer uma experiência
-        completa em breve.
-      </p>
+      <SimpleCard />
     </S.Wrapper>
   );
 };
