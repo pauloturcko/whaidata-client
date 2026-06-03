@@ -1,16 +1,31 @@
 import { SelectHTMLAttributes } from "react";
 import * as S from "./styles";
 
-type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
+type Options = {
+  value: string | number;
   label: string;
 };
 
-export const Select = ({ label, ...props }: SelectProps) => {
+type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
+  label: string;
+  options: Options[];
+};
+
+export const Select = ({ label, options, ...props }: SelectProps) => {
   return (
     <S.InputWrapper>
       <S.Label>{label}</S.Label>
       <S.Container>
-        <S.Select></S.Select>
+        <S.Select {...props}>
+          {options.map((item) => (
+            <option
+              key={item.value}
+              value={item.value}
+            >
+              {item.label}
+            </option>
+          ))}
+        </S.Select>
       </S.Container>
     </S.InputWrapper>
   );

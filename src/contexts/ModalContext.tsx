@@ -10,12 +10,14 @@ import {
 
 type BaseModalProps = {
   onClose: () => void;
+  modalTitle: string;
   [key: string]: unknown;
 };
 
 type ModalConfig = {
   component: ComponentType<BaseModalProps>;
-  props?: Omit<BaseModalProps, "onClose">;
+  title: string;
+  props?: Omit<BaseModalProps, "onClose" | "modalTitle">;
 };
 
 type ModalContextType = {
@@ -37,10 +39,14 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
     <ModalContext.Provider value={{ openModal, closeModal }}>
       {children}
       {ActiveComponent && (
-        <BaseModal onClose={closeModal}>
+        <BaseModal
+          title={modalConfig!.title}
+          onClose={closeModal}
+        >
           <ActiveComponent
             {...(modalConfig?.props ?? {})}
             onClose={closeModal}
+            modalTitle={modalConfig!.title}
           />
         </BaseModal>
       )}
