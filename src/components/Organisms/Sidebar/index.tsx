@@ -52,8 +52,8 @@ const menuItems: menuItemsType[] = [
     icon: <FileText />,
   },
   {
-    label: "Configuração",
-    link: "/configuracao",
+    label: "Configurações",
+    link: "/configuracoes",
     icon: <Settings />,
   },
 ];

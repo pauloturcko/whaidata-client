@@ -66,7 +66,8 @@ export const MenuList = styled.ul`
     }
 
     &:focus,
-    &:active {
+    &:active,
+    &.active {
       color: ${(props) => props.theme.colors.primary};
       background-color: ${(props) => props.theme.colors.primarySoft};
     }
