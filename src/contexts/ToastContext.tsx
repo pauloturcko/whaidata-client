@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, ReactNode, useContext, useState } from "react";
+import { createContext, ReactNode, useContext, useState } from "react";
 
 type ToastType = "success" | "error" | "info" | "warning";
 
@@ -18,7 +18,13 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
   const [type, setType] = useState<ToastType>("info");
   const [id, setId] = useState(0);
 
-  const dispatchToast = ({ message, type }: { message: string; type: ToastType }) => {
+  const dispatchToast = ({
+    message,
+    type,
+  }: {
+    message: string;
+    type: ToastType;
+  }) => {
     setMessage(message);
     setType(type);
     setId((prev) => prev + 1);

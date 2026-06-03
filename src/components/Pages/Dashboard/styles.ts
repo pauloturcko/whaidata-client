@@ -6,14 +6,10 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+`;
 
-  h2 {
-    color: ${({ theme }) => theme.colors.textPrimary};
-  }
-
-  p {
-    color: ${({ theme }) => theme.colors.textSecondary};
-    font-size: 1.15rem;
-    width: 60%;
-  }
+export const SimpleCardsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 `;

@@ -9,6 +9,8 @@ import { ToastProvider } from "@/contexts/ToastContext";
 import { Toast } from "@/components/Organisms/Toast";
 import { LoaderProvider } from "@/contexts/LoaderContext";
 import { FullPageLoader } from "@/components/Organisms/FullPageLoader";
+import { ModalProvider } from "@/contexts/ModalContext";
+import { BaseModal } from "@/components/Molecules/BaseModal";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -19,10 +21,13 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <ThemeProvider theme={theme[themeMode]}>
         <LoaderProvider>
           <ToastProvider>
-            <GlobalStyles />
-            <Toast />
-            <FullPageLoader />
-            {children}
+            <ModalProvider>
+              <GlobalStyles />
+              <Toast />
+              <FullPageLoader />
+              <BaseModal />
+              {children}
+            </ModalProvider>
           </ToastProvider>
         </LoaderProvider>
       </ThemeProvider>

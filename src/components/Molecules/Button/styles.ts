@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { ThemeType } from "@/styles/theme";
 
 type ButtonBackground =
   | "primary"
@@ -12,7 +13,7 @@ type ButtonProps = {
   $background?: ButtonBackground;
   $width?: number | string;
   $height?: number | string;
-  $color?: string;
+  $color?: keyof ThemeType["colors"];
   $justify?: "start" | "end";
   $loading?: boolean;
   $disabled?: boolean;
@@ -32,7 +33,8 @@ export const StyledButton = styled.button<ButtonProps>`
   height: ${({ $height }) =>
     typeof $height === "string" ? $height : `${$height}px`};
   justify-content: ${({ $justify }) => $justify ?? "center"};
-  color: ${({ theme, $color }) => $color ?? theme.colors.textPrimary};
+  color: ${({ theme, $color }) =>
+    $color ? theme.colors[$color] : theme.colors.textPrimary};
   border: ${({ theme, $border }) =>
     $border ? `1px solid ${theme.colors.border}` : "none"};
   border-radius: ${({ $rounded }) =>
