@@ -1,6 +1,5 @@
 "use client";
 
-import { FullLogo } from "@/components/Molecules/Logo/FullLogo";
 import * as S from "./styles";
 import Link from "next/link";
 import {
@@ -17,7 +16,7 @@ import {
 import { ReactNode, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
-import { Logo } from "@/components/Molecules/Logo";
+import { Logo } from "@/components/Atoms/Logo";
 
 type menuItemsType = {
   label: string;

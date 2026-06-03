@@ -6,11 +6,10 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "@/styles/GlobalStyles";
 import { theme } from "@/styles/theme";
 import { ToastProvider } from "@/contexts/ToastContext";
-import { Toast } from "@/components/Organisms/Toast";
+import { Toast } from "@/components/Molecules/Toast";
 import { LoaderProvider } from "@/contexts/LoaderContext";
-import { FullPageLoader } from "@/components/Organisms/FullPageLoader";
+import { FullPageLoader } from "@/components/Atoms/FullPageLoader";
 import { ModalProvider } from "@/contexts/ModalContext";
-import { BaseModal } from "@/components/Molecules/BaseModal";
 
 export function Providers({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
@@ -25,7 +24,6 @@ export function Providers({ children }: { children: React.ReactNode }) {
               <GlobalStyles />
               <Toast />
               <FullPageLoader />
-              <BaseModal />
               {children}
             </ModalProvider>
           </ToastProvider>

@@ -1,28 +1,30 @@
 "use client";
 
-import { useModalContext } from "@/contexts/ModalContext";
 import { ReactNode } from "react";
 import * as S from "./styles";
-import { Button } from "../Button";
 import { X } from "lucide-react";
 
 type BaseModalPops = {
   children?: ReactNode;
   title?: string;
+  onClose: () => void;
 };
 
-export const BaseModal = ({ children, title }: BaseModalPops) => {
-  const { closeModal } = useModalContext();
-
+export const BaseModal = ({
+  children,
+  title = "Novo Cartão",
+  onClose,
+}: BaseModalPops) => {
   return (
-    <S.Overlay>
-      <S.Container>
+    <S.Overlay onClick={onClose}>
+      <S.Container onClick={(event) => event.stopPropagation()}>
         <S.Header>
-          <h3>Novo Cartão</h3>
-          <button onClick={closeModal}>
+          <h3>{title}</h3>
+          <button onClick={onClose}>
             <X size={22} />
           </button>
         </S.Header>
+        {children}
       </S.Container>
     </S.Overlay>
   );

@@ -2,14 +2,14 @@
 
 import * as S from "./styles";
 import Cookies from "js-cookie";
-import { Logo } from "@/components/Molecules/Logo";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { Form } from "@/components/Molecules/FormInput";
-import { Button } from "@/components/Molecules/Button";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useAuth } from "@/hooks/useAuth";
 import { useToastContext } from "@/contexts/ToastContext";
+import { FormInput } from "@/components/Atoms/FormInput";
+import { Button } from "@/components/Atoms/Button";
+import { Logo } from "@/components/Atoms/Logo";
 
 type LoginFormData = {
   nome: string;
@@ -21,13 +21,8 @@ export const LoginPage = () => {
   const router = useRouter();
   const [isActive, setIsActive] = useState(true);
   const { dispatchToast } = useToastContext();
-  const {
-    register,
-    handleSubmit,
-    reset,
-    clearErrors,
-    formState: { errors },
-  } = useForm<LoginFormData>();
+  const { register, handleSubmit, reset, clearErrors } =
+    useForm<LoginFormData>();
   const { createAccount, login } = useAuth();
   const onSubmit: SubmitHandler<LoginFormData> = (data) => {
     if (isActive) {
@@ -91,29 +86,23 @@ export const LoginPage = () => {
         </S.LoginOrCreateContainer>
         <S.FormWrapper onSubmit={handleSubmit(onSubmit)}>
           {!isActive ? (
-            <Form.Input
-              name={"nome"}
+            <FormInput.Text
+              label={"Nome"}
               placeholder={"Nome"}
-              register={register}
-              required
-              error={errors.nome}
+              {...register("nome")}
             />
           ) : null}
-          <Form.Input
-            name={"email"}
+          <FormInput.Text
+            label={"Email"}
             placeholder={"Email"}
             type={"email"}
-            register={register}
-            required
-            error={errors.email}
+            {...register("email")}
           />
-          <Form.Input
-            name={"senha"}
+          <FormInput.Text
+            label={"Senha"}
             placeholder={"Senha"}
             type={"password"}
-            register={register}
-            required
-            error={errors.senha}
+            {...register("senha")}
           />
 
           {isActive ? (

@@ -1,8 +1,8 @@
 "use client";
 
-import { StyledButton } from "@/components/Molecules/Button/styles";
 import { ReactNode } from "react";
 import { ThemeType } from "@/styles/theme";
+import { StyledButton } from "./styles";
 type ThemeColors = keyof ThemeType["colors"];
 
 type ButtonProps = {
