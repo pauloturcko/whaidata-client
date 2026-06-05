@@ -1,47 +1,59 @@
 "use client";
+import { BaseModal } from "@/components/Molecules/BaseModal";
+import {
+  ReactNode,
+  useContext,
+  useState,
+  createContext,
+  ComponentType,
+} from "react";
 
-import { ReactNode, useContext, useState, createContext } from "react";
+type BaseModalProps = {
+  onClose: () => void;
+  [key: string]: unknown;
+};
+
+type ModalConfig = {
+  component: ComponentType<BaseModalProps>;
+  props?: Omit<BaseModalProps, "onClose">;
+};
 
 type ModalContextType = {
-  modalContent: ReactNode | null;
-  dispatchModal: (content: ReactNode) => void;
+  openModal: (config: ModalConfig) => void;
   closeModal: () => void;
 };
 
 const ModalContext = createContext<ModalContextType | null>(null);
 
 export const ModalProvider = ({ children }: { children: ReactNode }) => {
-  const [modalContent, setModalContent] = useState<ReactNode | null>(null);
+  const [modalConfig, setModalConfig] = useState<ModalConfig | null>(null);
 
-  const dispatchModal = (content: ReactNode) => {
-    setModalContent(content);
-  };
+  const openModal = (config: ModalConfig) => setModalConfig(config);
+  const closeModal = () => setModalConfig(null);
 
-  const closeModal = () => {
-    setModalContent(null);
-  };
+  const ActiveComponent = modalConfig?.component ?? null;
 
   return (
-    <ModalContext.Provider
-      value={{
-        modalContent,
-        dispatchModal,
-        closeModal,
-      }}
-    >
+    <ModalContext.Provider value={{ openModal, closeModal }}>
       {children}
+      {ActiveComponent && (
+        <BaseModal onClose={closeModal}>
+          <ActiveComponent
+            {...(modalConfig?.props ?? {})}
+            onClose={closeModal}
+          />
+        </BaseModal>
+      )}
     </ModalContext.Provider>
   );
 };
 
 export function useModalContext(): ModalContextType {
   const context = useContext(ModalContext);
-
   if (!context) {
     throw new Error(
       "useModalContext() precisa ser usado dentro de <ModalProvider>"
     );
   }
-
   return context;
 }
