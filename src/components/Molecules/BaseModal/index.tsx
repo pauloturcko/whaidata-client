@@ -5,14 +5,14 @@ import * as S from "./styles";
 import { X } from "lucide-react";
 
 type BaseModalPops = {
-  children?: ReactNode;
-  title?: string;
+  children: ReactNode;
+  title: string;
   onClose: () => void;
 };
 
 export const BaseModal = ({
   children,
-  title = "Novo Cartão",
+  title = "Modal Title",
   onClose,
 }: BaseModalPops) => {
   return (

@@ -10,6 +10,16 @@ export const InputWrapper = styled.div`
 export const Container = styled.div`
   position: relative;
   width: 100%;
+
+  &::after {
+    content: "▼";
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+  }
 `;
 
 export const Label = styled.label`

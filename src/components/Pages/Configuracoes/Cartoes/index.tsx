@@ -4,8 +4,8 @@ import { Button } from "@/components/Atoms/Button";
 import { SettingsWrapper } from "@/components/Molecules/SettingsWrapper";
 import { CardInfo } from "@/components/Organisms/CardInfo";
 import { useModalContext } from "@/contexts/ModalContext";
-import { NewCard } from "@/components/Organisms/Forms/Configuracoes/Cartoes/NewCard";
 import { Plus } from "lucide-react";
+import { NewCard } from "./FormModal";
 
 const CardFormContent = ({ onClose }: { onClose: () => void }) => (
   <NewCard onClose={onClose} />
@@ -17,6 +17,7 @@ export const CartoesPage = () => {
   const handleOpenModal = () => {
     openModal({
       component: CardFormContent,
+      title: "Novo Cartão",
     });
   };
 
