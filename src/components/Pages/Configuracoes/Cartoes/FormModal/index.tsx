@@ -1,3 +1,4 @@
+import { Button } from "@/components/Atoms/Button";
 import { FormInput } from "@/components/Atoms/FormInput";
 import { FormWrapper } from "@/components/Atoms/FormWrapper";
 import { CardFlagOptions } from "@/constants/enums/card-flag-enum";
@@ -53,6 +54,7 @@ export const NewCard = ({ onClose }: { onClose: () => void }) => {
         placeholder="Ex: 4.000,00"
         {...register("limite")}
       />
+      <Button>Cancelar</Button>
     </FormWrapper>
   );
 };
