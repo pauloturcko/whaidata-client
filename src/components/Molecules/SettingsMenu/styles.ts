@@ -6,6 +6,8 @@ export const SettingsMenu = styled.ul`
   gap: 1rem;
   padding: 0.5rem;
   width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
   background-color: ${(props) => props.theme.colors.surface};
   border-radius: 0.5rem;
 

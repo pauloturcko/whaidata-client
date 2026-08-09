@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   gap: 0.5rem;
 `;
 
@@ -18,7 +18,7 @@ export const Label = styled.label`
 
 export const Input = styled.input<{ $hasError?: boolean }>`
   width: 100%;
-  padding: 8px;
+  padding: 10px 12px;
   border: 1px solid
     ${({ $hasError, theme }) =>
       $hasError ? theme.colors.danger : theme.colors.border};
