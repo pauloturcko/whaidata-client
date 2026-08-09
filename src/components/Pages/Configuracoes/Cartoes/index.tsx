@@ -6,6 +6,7 @@ import { CardInfo } from "@/components/Organisms/CardInfo";
 import { useModalContext } from "@/contexts/ModalContext";
 import { Plus } from "lucide-react";
 import { NewCard } from "./FormModal";
+import * as S from "./styles";
 
 const CardFormContent = ({ onClose }: { onClose: () => void }) => (
   <NewCard onClose={onClose} />
@@ -37,7 +38,9 @@ export const CartoesPage = () => {
         </Button>
       }
     >
-      <CardInfo />
+      <S.CardsGrid>
+        <CardInfo />
+      </S.CardsGrid>
     </SettingsWrapper>
   );
 };

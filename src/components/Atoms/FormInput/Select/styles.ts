@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   gap: 0.5rem;
 `;
 
@@ -28,7 +28,7 @@ export const Label = styled.label`
 
 export const Select = styled.select<{ $hasError?: boolean }>`
   width: 100%;
-  padding: 8px;
+  padding: 10px 30px 10px 12px;
   border: 1px solid
     ${({ $hasError, theme }) =>
       $hasError ? theme.colors.danger : theme.colors.border};
@@ -36,6 +36,8 @@ export const Select = styled.select<{ $hasError?: boolean }>`
   font-size: 14px;
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.surface};
+  -webkit-appearance: none;
+  appearance: none;
 
   &:focus {
     outline: none;

@@ -2,38 +2,36 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  //background-image:
-  //        linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-  //        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-  //background-size: 30px 30px;
+  gap: 1.5rem;
 `;
 
 export const LoginModal = styled.div`
   background-color: ${({ theme }) => theme.colors.surface};
   width: 90%;
-  max-width: 450px;
-  height: 30rem;
-  border-radius: 0.5rem;
-  border: 2px solid ${({ theme }) => theme.colors.border};
+  max-width: 440px;
+  min-height: auto;
+  border-radius: 0.75rem;
+  border: 1px solid ${({ theme }) => theme.colors.border};
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  //box-shadow: rgba(0,255,150, 0.1) 0px 20px 25px -5px, rgba(0,255,150, 0.04) 0px 10px 10px -5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 `;
+
 export const LoginOrCreateContainer = styled.div`
   display: flex;
   width: 100%;
   height: auto;
   gap: 0.1rem;
-  border-radius: 0.5rem;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.border};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border};
 `;
 
 export const LoginOrCreate = styled.button<{ $isActive: boolean }>`
@@ -47,10 +45,12 @@ export const LoginOrCreate = styled.button<{ $isActive: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease;
 
   &:first-child {
-    border-radius: 0.5rem 0 0 0;
+    border-radius: 0.75rem 0 0 0;
     background: ${({ $isActive, theme }) =>
       $isActive
         ? "linear-gradient(90deg, #246245, #00af73)"
@@ -58,7 +58,7 @@ export const LoginOrCreate = styled.button<{ $isActive: boolean }>`
   }
 
   &:last-child {
-    border-radius: 0 0.5rem 0 0;
+    border-radius: 0 0.75rem 0 0;
     background: ${({ $isActive, theme }) =>
       $isActive
         ? "linear-gradient(90deg, #00af73, #246245)"
@@ -69,30 +69,34 @@ export const LoginOrCreate = styled.button<{ $isActive: boolean }>`
 export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  flex: 1;
-  padding-top: 1.5rem;
-  overflow: hidden;
+  padding: 1.75rem 2rem;
+
+  @media (max-width: 480px) {
+    padding: 1.25rem 1.25rem;
+    gap: 1rem;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
-  margin-top: auto;
-  width: 90%;
-  padding-bottom: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
 `;
 
 export const ResetPassword = styled.a`
-  width: 90%;
+  width: 100%;
   text-align: end;
-  margin-bottom: 1rem;
-  font-size: 0.875em;
+  margin-top: -0.25rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.textSecondary};
 
   &:hover {
+    color: ${({ theme }) => theme.colors.primary};
     text-decoration: underline;
   }
 `;

@@ -7,12 +7,20 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
     }
 
+    html, body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
     body {
         background: ${({ theme }) => theme.colors.background};
         color: ${({ theme }) => theme.colors.textPrimary};
         font-family: sans-serif;
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-tap-highlight-color: transparent;
     }
 
     button {
@@ -24,6 +32,8 @@ export const GlobalStyles = createGlobalStyle`
     input, textarea, select {
         all: unset;
         box-sizing: border-box;
+        -webkit-appearance: none;
+        appearance: none;
     }
 
     a {

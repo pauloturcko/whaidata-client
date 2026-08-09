@@ -3,6 +3,10 @@ import { styled } from "styled-components";
 export const Aside = styled.aside<{ $isOpen: boolean }>`
   background-color: ${(props) => props.theme.colors.surface};
   width: ${({ $isOpen }) => ($isOpen ? "16.5rem" : "4rem")};
+  min-width: ${({ $isOpen }) => ($isOpen ? "16.5rem" : "4rem")};
+  flex: 0 0 ${({ $isOpen }) => ($isOpen ? "16.5rem" : "4rem")};
+  flex-shrink: 0;
+  transition: width 0.2s ease-in-out, min-width 0.2s ease-in-out, flex-basis 0.2s ease-in-out;
   padding: 1rem 0.5rem;
   gap: 1rem;
   display: flex;
@@ -10,18 +14,26 @@ export const Aside = styled.aside<{ $isOpen: boolean }>`
   align-items: start;
   justify-content: flex-start;
   border-right: 1px solid ${(props) => props.theme.colors.border};
+
+  @media (max-width: 1280px) {
+    width: ${({ $isOpen }) => ($isOpen ? "14.5rem" : "4rem")};
+    min-width: ${({ $isOpen }) => ($isOpen ? "14.5rem" : "4rem")};
+    flex: 0 0 ${({ $isOpen }) => ($isOpen ? "14.5rem" : "4rem")};
+  }
 `;
 
 export const Nav = styled.nav`
   display: flex;
   width: 100%;
-  height: 85%;
+  flex: 1;
+  min-height: 0;
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
   border-top: 1px solid ${(props) => props.theme.colors.border};
   border-bottom: 1px solid ${(props) => props.theme.colors.border};
   padding: 1rem 0;
+  margin-bottom: 0.5rem;
 
   span {
     width: 100%;

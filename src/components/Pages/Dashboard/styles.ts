@@ -9,7 +9,16 @@ export const Wrapper = styled.div`
 `;
 
 export const SimpleCardsWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+
+  @media (max-width: 1600px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
