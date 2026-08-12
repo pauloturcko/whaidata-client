@@ -33,6 +33,9 @@ next-env.d.ts
 # logs
 npm-debug.log*
 
+# ide
+.vscode
+
 # storybook
 storybook-static
 *.storybook.log

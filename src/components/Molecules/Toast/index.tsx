@@ -29,7 +29,7 @@ export const Toast = () => {
       $type={type}
       $leaving={status === "leaving"}
     >
-      {message}
+      {typeof message === "object" ? JSON.stringify(message) : message}
     </S.Wrapper>
   );
 };
