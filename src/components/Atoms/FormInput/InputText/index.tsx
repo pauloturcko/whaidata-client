@@ -4,18 +4,29 @@ import { InputHTMLAttributes, useState } from "react";
 
 type InputTextProps = InputHTMLAttributes<HTMLInputElement> & {
   label: string;
+  required?: boolean;
+  error?: string;
 };
 
-export const InputText = ({ label, ...props }: InputTextProps) => {
+export const InputText = ({
+  label,
+  required,
+  error,
+  ...props
+}: InputTextProps) => {
   const [isVisible, setIsVisible] = useState(false);
 
   return (
     <S.InputWrapper>
-      <S.Label>{label}</S.Label>
+      <S.Label>
+        {label}
+        {required && <S.RequiredMark>*</S.RequiredMark>}
+      </S.Label>
       <S.InputContainer>
         <S.Input
           {...props}
           type={isVisible ? "text" : props.type}
+          $hasError={!!error}
         />
         {props.type === "password" && (
           <S.ToggleButton
@@ -36,6 +47,7 @@ export const InputText = ({ label, ...props }: InputTextProps) => {
           </S.ToggleButton>
         )}
       </S.InputContainer>
+      {error && <S.ErrorMessage>{error}</S.ErrorMessage>}
     </S.InputWrapper>
   );
 };

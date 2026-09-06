@@ -9,14 +9,28 @@ type Options = {
 type SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
   label: string;
   options: Options[];
+  required?: boolean;
+  error?: string;
 };
 
-export const Select = ({ label, options, ...props }: SelectProps) => {
+export const Select = ({
+  label,
+  options,
+  required,
+  error,
+  ...props
+}: SelectProps) => {
   return (
     <S.InputWrapper>
-      <S.Label>{label}</S.Label>
+      <S.Label>
+        {label}
+        {required && <S.RequiredMark>*</S.RequiredMark>}
+      </S.Label>
       <S.Container>
-        <S.Select {...props}>
+        <S.Select
+          {...props}
+          $hasError={!!error}
+        >
           {options.map((item) => (
             <option
               key={item.value}
@@ -27,6 +41,7 @@ export const Select = ({ label, options, ...props }: SelectProps) => {
           ))}
         </S.Select>
       </S.Container>
+      {error && <S.ErrorMessage>{error}</S.ErrorMessage>}
     </S.InputWrapper>
   );
 };

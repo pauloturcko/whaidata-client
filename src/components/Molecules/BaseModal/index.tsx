@@ -2,7 +2,6 @@
 
 import { ReactNode } from "react";
 import * as S from "./styles";
-import { X } from "lucide-react";
 
 type BaseModalPops = {
   children: ReactNode;
@@ -20,9 +19,6 @@ export const BaseModal = ({
       <S.Container onClick={(event) => event.stopPropagation()}>
         <S.Header>
           <h3>{title}</h3>
-          <button onClick={onClose}>
-            <X size={22} />
-          </button>
         </S.Header>
         {children}
       </S.Container>

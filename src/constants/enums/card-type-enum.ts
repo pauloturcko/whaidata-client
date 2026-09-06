@@ -1,10 +1,10 @@
 export enum CardType {
-  Debito = 1,
-  Credito = 2,
+  Credito = 1,
+  Debito = 2,
   DebitoCredito = 3,
 }
 
-const CardTypeLabels: Record<CardType, string> = {
+export const CardTypeLabels: Record<CardType, string> = {
   [CardType.Debito]: "Débito",
   [CardType.Credito]: "Crédito",
   [CardType.DebitoCredito]: "Débito e Crédito",

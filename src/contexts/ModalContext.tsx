@@ -8,7 +8,7 @@ import {
   ComponentType,
 } from "react";
 
-type BaseModalProps = {
+export type BaseModalProps = {
   onClose: () => void;
   modalTitle: string;
   [key: string]: unknown;
