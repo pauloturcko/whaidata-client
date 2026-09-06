@@ -26,6 +26,7 @@ type ButtonProps = {
   rounded?: number | string;
   faded?: boolean;
   type?: "button" | "submit" | "reset";
+  hover?: ThemeColors | null;
   onClick?: () => void;
 };
 
@@ -44,6 +45,7 @@ export const Button = ({
   height,
   faded,
   type,
+  hover = null,
   onClick,
 }: ButtonProps) => {
   return (
@@ -61,6 +63,7 @@ export const Button = ({
       $rounded={rounded}
       $faded={faded}
       type={type}
+      $hover={hover}
       onClick={onClick}
     >
       {children}

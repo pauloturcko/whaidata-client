@@ -22,6 +22,7 @@ type ButtonProps = {
   $weight?: "normal" | "bold" | "light";
   $rounded?: number | string;
   $faded?: boolean;
+  $hover?: keyof ThemeType["colors"] | null;
 };
 
 export const StyledButton = styled.button<ButtonProps>`
@@ -50,4 +51,9 @@ export const StyledButton = styled.button<ButtonProps>`
       : $background
         ? theme.colors[$background]
         : theme.colors.primary};
+
+  &:hover {
+    background-color: ${({ theme, $hover }) =>
+      $hover ? theme.colors[$hover] : null};
+  }
 `;

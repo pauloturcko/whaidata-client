@@ -49,4 +49,27 @@ export const GlobalStyles = createGlobalStyle`
         display: block;
         max-width: 100%;
     }
+
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: ${({ theme }) => theme.colors.border} transparent;
+    }
+
+    *::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    *::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.colors.border};
+        border-radius: 999px;
+    }
+
+    *::-webkit-scrollbar-thumb:hover {
+        background-color: ${({ theme }) => theme.colors.textMuted};
+    }
 `;

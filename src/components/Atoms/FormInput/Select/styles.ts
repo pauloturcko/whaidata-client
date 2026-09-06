@@ -26,6 +26,11 @@ export const Label = styled.label`
   font-size: 0.925rem;
 `;
 
+export const RequiredMark = styled.span`
+  color: ${({ theme }) => theme.colors.danger};
+  margin-left: 2px;
+`;
+
 export const Select = styled.select<{ $hasError?: boolean }>`
   width: 100%;
   padding: 10px 30px 10px 12px;
