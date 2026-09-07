@@ -75,7 +75,8 @@ export const Sidebar = () => {
       <S.Nav>
         <S.MenuList>
           {menuItems.map((item: menuItemsType) => {
-            const isActive = pathname === item.link;
+            const isActive =
+              pathname === item.link || pathname.startsWith(`${item.link}/`);
 
             return (
               <li key={item.link}>
