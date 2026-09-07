@@ -1,5 +1,6 @@
-import { redirect } from "next/navigation"
+import { redirect } from "next/navigation";
+import { settingsMenuItems } from "@/constants/settingsMenuItems";
 
 export default function ConfiguracoesPage() {
-    redirect("/configuracoes/cartoes");
+  redirect(settingsMenuItems[0].route);
 }

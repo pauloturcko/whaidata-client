@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 
 export const SettingsMenu = styled.ul`
   display: inline-flex;
@@ -14,21 +15,45 @@ export const SettingsMenu = styled.ul`
   li {
     list-style: none;
     flex-shrink: 0;
-    padding: 0.25rem 1rem;
-    border-radius: 0.25rem;
+  }
+`;
 
-    &:hover {
-    background-color: ${(props) => props.theme.colors.surfaceElevated};
-  }
-    &:active, &:focus {
-    background-color: ${(props) => props.theme.colors.primarySoft};
-    }
-  }
+export const MenuLink = styled(Link)<{ $active?: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  padding: 0.25rem 1rem;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: ${(props) =>
+    props.$active
+      ? props.theme.colors.primary
+      : props.theme.colors.textSecondary};
+  background-color: ${(props) =>
+    props.$active ? props.theme.colors.primarySoft : "transparent"};
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 
-  a {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    white-space: nowrap;
+  &:hover {
+    background-color: ${(props) =>
+      props.$active
+        ? props.theme.colors.primarySoft
+        : props.theme.colors.surfaceElevated};
   }
+`;
+
+export const Icon = styled.span`
+  display: none;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    display: inline-flex;
+  }
+`;
+
+export const Label = styled.span`
+  width: max-content;
 `;

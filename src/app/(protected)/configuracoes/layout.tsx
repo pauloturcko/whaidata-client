@@ -2,19 +2,8 @@
 
 import styled from "styled-components";
 import { ReactNode } from "react";
-import {
-  SettingsMenu,
-  SettingsMenuItem,
-} from "@/components/Molecules/SettingsMenu";
-import { CreditCard } from "lucide-react";
-
-const settingsMenuItems: SettingsMenuItem[] = [
-  {
-    name: "Cartões",
-    route: "/configuracoes/cartoes",
-    icon: <CreditCard />,
-  },
-];
+import { SettingsMenu } from "@/components/Molecules/SettingsMenu";
+import { settingsMenuItems } from "@/constants/settingsMenuItems";
 
 export default function Configuracoes({ children }: { children: ReactNode }) {
   return (
