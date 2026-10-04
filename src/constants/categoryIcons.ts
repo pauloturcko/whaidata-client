@@ -1,0 +1,90 @@
+import {
+  Baby,
+  Banknote,
+  Beer,
+  BookOpen,
+  Briefcase,
+  Bus,
+  Car,
+  Coffee,
+  Coins,
+  Droplets,
+  Dumbbell,
+  Film,
+  Fuel,
+  Gamepad2,
+  Gift,
+  GraduationCap,
+  HeartPulse,
+  House,
+  Landmark,
+  LucideIcon,
+  Music,
+  PawPrint,
+  PiggyBank,
+  Pill,
+  Plane,
+  Receipt,
+  Scissors,
+  Shirt,
+  ShoppingCart,
+  Smartphone,
+  Tag,
+  TrendingUp,
+  Utensils,
+  Wallet,
+  Wifi,
+  Wrench,
+  Zap,
+} from "lucide-react";
+
+type CategoryIcon = {
+  label: string;
+  icon: LucideIcon;
+};
+
+export const categoryIcons: Record<string, CategoryIcon> = {
+  tag: { label: "Geral", icon: Tag },
+  utensils: { label: "Alimentação", icon: Utensils },
+  "shopping-cart": { label: "Mercado", icon: ShoppingCart },
+  coffee: { label: "Café", icon: Coffee },
+  beer: { label: "Bares", icon: Beer },
+  house: { label: "Moradia", icon: House },
+  zap: { label: "Energia", icon: Zap },
+  droplets: { label: "Água", icon: Droplets },
+  wifi: { label: "Internet", icon: Wifi },
+  smartphone: { label: "Celular", icon: Smartphone },
+  receipt: { label: "Contas", icon: Receipt },
+  car: { label: "Carro", icon: Car },
+  fuel: { label: "Combustível", icon: Fuel },
+  bus: { label: "Transporte", icon: Bus },
+  plane: { label: "Viagem", icon: Plane },
+  "heart-pulse": { label: "Saúde", icon: HeartPulse },
+  pill: { label: "Farmácia", icon: Pill },
+  dumbbell: { label: "Academia", icon: Dumbbell },
+  scissors: { label: "Beleza", icon: Scissors },
+  shirt: { label: "Vestuário", icon: Shirt },
+  "graduation-cap": { label: "Educação", icon: GraduationCap },
+  "book-open": { label: "Livros", icon: BookOpen },
+  "gamepad-2": { label: "Jogos", icon: Gamepad2 },
+  film: { label: "Streaming", icon: Film },
+  music: { label: "Música", icon: Music },
+  "paw-print": { label: "Pets", icon: PawPrint },
+  baby: { label: "Filhos", icon: Baby },
+  gift: { label: "Presentes", icon: Gift },
+  wrench: { label: "Manutenção", icon: Wrench },
+  briefcase: { label: "Salário", icon: Briefcase },
+  banknote: { label: "Dinheiro", icon: Banknote },
+  coins: { label: "Renda extra", icon: Coins },
+  "trending-up": { label: "Investimentos", icon: TrendingUp },
+  "piggy-bank": { label: "Reserva", icon: PiggyBank },
+  wallet: { label: "Carteira", icon: Wallet },
+  landmark: { label: "Impostos", icon: Landmark },
+};
+
+export const CategoryIconOptions = Object.entries(categoryIcons).map(
+  ([value, { label, icon }]) => ({ value, label, icon })
+);
+
+export const getCategoryIcon = (icon: string): LucideIcon =>
+  categoryIcons[icon]?.icon ?? Tag;
