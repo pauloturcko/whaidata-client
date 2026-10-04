@@ -11,11 +11,23 @@ type LoginParams = {
   password: string;
 };
 
-type UserData = {
+export type UserData = {
   id: number;
   name: string;
   email: string;
-  profilePicture: string;
+  createdAt: string;
+  profilePicture?: string | null;
+};
+
+export type SystemPreferences = {
+  theme: number;
+  language: number;
+  currency: number;
+};
+
+type LoggedUserResponse = {
+  user: UserData;
+  systemPreferences: SystemPreferences | null;
 };
 
 export const authService = {
@@ -30,7 +42,7 @@ export const loginService = {
 
 export const userService = {
   getLoggedUserData: async () => {
-    const response = await http.get<UserData>("/users/me");
+    const response = await http.get<LoggedUserResponse>("/users/me");
     return response.data;
   },
 };

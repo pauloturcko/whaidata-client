@@ -13,7 +13,8 @@ export const useUser = () => {
   });
 
   return {
-    user: query.data,
+    user: query.data?.user,
+    systemPreferences: query.data?.systemPreferences,
     isLoading: query.isLoading,
     isError: query.isError,
   };

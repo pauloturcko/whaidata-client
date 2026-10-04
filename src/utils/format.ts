@@ -10,6 +10,12 @@ export const formatCurrencyInput = (value: number): string =>
     maximumFractionDigits: 2,
   }).format(value);
 
+export const formatMonthYear = (isoDate: string): string =>
+  new Intl.DateTimeFormat("pt-BR", {
+    month: "long",
+    year: "numeric",
+  }).format(new Date(isoDate));
+
 export const formatExpiryDate = (isoDate: string): string => {
   const date = new Date(isoDate);
   const month = String(date.getUTCMonth() + 1).padStart(2, "0");
